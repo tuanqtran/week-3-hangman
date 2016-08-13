@@ -31,7 +31,8 @@ for (var k = 0; k < computerGuessAry.length; k++){
     var dash = dashAry.join('');
 
 // Computer chooses a random word from the array and locks that word until we win or lose and start over.
-var html = "<p>Press any key to get started!</p>" +
+var html = "<h2>Guess the galaxy!</h2>" +
+	"<p>Press any key to get started!</p>" +
     "<p>Wins: " + wins + "</p>" +
     "<p>Losses: " + losses + "</p>" +
     "<p>Current Word</p>" +
@@ -108,15 +109,16 @@ for (var w = 0; w < computerGuess.length; w++){
         console.log("-------------------------");
     }
 
-var html = "<p>Press any key to get started!</p>" +
-	"<p>Wins: " + wins + "</p>" +
-	"<p>Losses: " + losses + "</p>" +
-	"<p>Current Word</p>" +
-	"<p>" + dash + "</p>" +
-	"<p>Number of Guesses Remaining</p>" +
-	"<p>" + guesses + "</p>" +
-	"<p>Letters Already Guessed</p>" +
-	"<p>" + guessesSoFar + "</p>";
+var html = "<h2>Guess the galaxy!</h2>" +
+	"<p>Press any key to get started!</p>" +
+    "<p>Wins: " + wins + "</p>" +
+    "<p>Losses: " + losses + "</p>" +
+    "<p>Current Word</p>" +
+    "<p>" + dash + "</p>" +
+    "<p>Number of Guesses Remaining</p>" +
+    "<p>" + guesses + "</p>" +
+    "<p>Letters Already Guessed</p>" +
+    "<p>" + guessesSoFar + "</p>";
 
 document.querySelector(".hangman").innerHTML = html;
 }
