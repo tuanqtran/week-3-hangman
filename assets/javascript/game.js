@@ -1,9 +1,9 @@
 // Using arrays, create a list of words for the computer to choose from.
-var computerChoices = ["max", "lexi", "daisy", "heyhey"];
+var computerChoices = ["milkyway", "andromeda", "comet", "cosmos", "draco", "mayall", "triangulum", "bode", "messier"];
 
 var wins = 0;
 var losses = 0;
-var guesses = 10; //Change to 20 in the future
+var guesses = 15; //Change to 20 in the future
 var guessesSoFar = [];
 var dashAry = [];
 
@@ -13,7 +13,7 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 function computerGuessReset(){
     computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     guessesSoFar = [];
-    guesses = 10
+    guesses = 15
     dash = [];
     dashAry = [];
 	computerGuessAry = computerGuess.split("");
@@ -24,7 +24,7 @@ function computerGuessReset(){
     	dash = dashAry.join(''); 
 }
 
-
+// Replace computerGuess with dashes.
 var computerGuessAry = computerGuess.split("");
 for (var k = 0; k < computerGuessAry.length; k++){
     dashAry.push("_" + " ");
