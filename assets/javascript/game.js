@@ -5,60 +5,54 @@ var wins = 0;
 var losses = 0;
 var guesses = 10; //Change to 20 in the future
 var guessesSoFar = [];
-var dashAry= [];
+var dashAry = [];
 
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    for (i=0; i < computerGuess.length; i++){
-    	dashAry.push(" _ ");
-    	// var spaceAry = dashAry.join('');
-    } // Main for loop
 
 // Function reset upon wins/losses.
 function computerGuessReset(){
     computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     guessesSoFar = [];
     guesses = 10
-    tempAry = [];
+    dash = [];
     dashAry = [];
+	computerGuessAry = computerGuess.split("");
+		for ( k = 0; k < computerGuessAry.length; k++){
+    		dashAry.push("_" + " ");
+		}
+     	
+    	dash = dashAry.join(''); 
 }
+
+
+var computerGuessAry = computerGuess.split("");
+for (var k = 0; k < computerGuessAry.length; k++){
+    dashAry.push("_" + " ");
+}
+    var dash = dashAry.join('');
 
 // Computer chooses a random word from the array and locks that word until we win or lose and start over.
 var html = "<p>Press any key to get started!</p>" +
-	"<p>Wins: " + wins + "</p>" +
-	"<p>Losses: " + losses + "</p>" +
-	"<p>Current Word</p>" +
-	"<p>" + dashAry + "</p>" +
-	"<p>Number of Guesses Remaining</p>" +
-	"<p>" + guesses + "</p>" +
-	"<p>Letters Already Guessed</p>" +
-	"<p>" + guessesSoFar + "</p>";
+    "<p>Wins: " + wins + "</p>" +
+    "<p>Losses: " + losses + "</p>" +
+    "<p>Current Word</p>" +
+    "<p>" + dash + "</p>" +
+    "<p>Number of Guesses Remaining</p>" +
+    "<p>" + guesses + "</p>" +
+    "<p>Letters Already Guessed</p>" +
+    "<p>" + guessesSoFar + "</p>";
 
 document.querySelector(".hangman").innerHTML = html;
 
 document.onkeyup = function(event){
 // User presses a key to guess the word chosen by the computer.
 var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-var tempAry = [];
 
-	// for (var k = 0; k < computerGuess.length; k++) {
- // 		if (computerGuess[k] === userGuess) {
- // 			tempAry[k] = userGuess;
- // 		}else{
- // 			tempAry[k] = dashAry[k];
- // 		}
- // 	}
-	// dashAry = tempAry;
-
-for (var k = 0; k < computerGuess.length; k++) {
-	if(computerGuess.indexOf(userGuess) != -1){
-		dashAry(k, 1, userGuess);
-		alert("Dash array: " + dashAry);
-
-	}else{
-		alert("Dash array: " + dashAry);
-
-		alert("testing");
-
+for (var w = 0; w < computerGuess.length; w++){
+	if(userGuess == computerGuessAry[w]){
+		dashAry[w] = userGuess;
+		dash = dashAry.join('');
+		console.log("Checking for letter " + dashAry);
 	}
 }
 
@@ -74,7 +68,7 @@ for (var k = 0; k < computerGuess.length; k++) {
         (userGuess == 'y') || (userGuess == 'z')){
 
         // Wins if userGuess = to computerGuess.
-        if (userGuess == computerGuess){
+        if (dash == computerGuess){
             wins++
             computerGuessReset();
             console.log("ComputerGuess win reset: " + computerGuessReset);
@@ -95,7 +89,7 @@ for (var k = 0; k < computerGuess.length; k++) {
         }else{
             // Check if the userGuess is not within the guessesSoFar.
             if(guessesSoFar.indexOf(userGuess) != -1){
-                alert("Duplicate letter was pressed. Please try again.")
+                // alert("Duplicate letter was pressed. Please try again.")
                 console.log("UserGuess within the for loop if statement: " + userGuess);
                 console.log("-------------------------");
             // If userGuess is inside the guessesSoFar array, decrement guesses and push userGuess into guessesSoFar.
@@ -108,17 +102,16 @@ for (var k = 0; k < computerGuess.length; k++) {
         }
     // Alerts user if a invalid letter is pressed.
     }else{
-        alert("Invalid letter. Please type a letter from a-z.");
+        // alert("Invalid letter. Please type a letter from a-z.");
         console.log("Alerts false letter: " + userGuess);
         console.log("-------------------------");
     }
-
 
 var html = "<p>Press any key to get started!</p>" +
 	"<p>Wins: " + wins + "</p>" +
 	"<p>Losses: " + losses + "</p>" +
 	"<p>Current Word</p>" +
-	"<p>" + dashAry + "</p>" +
+	"<p>" + dash + "</p>" +
 	"<p>Number of Guesses Remaining</p>" +
 	"<p>" + guesses + "</p>" +
 	"<p>Letters Already Guessed</p>" +
