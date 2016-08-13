@@ -89,7 +89,7 @@ for (var w = 0; w < computerGuess.length; w++){
         }else{
             // Check if the userGuess is not within the guessesSoFar.
             if(guessesSoFar.indexOf(userGuess) != -1){
-                // alert("Duplicate letter was pressed. Please try again.")
+                alert("Duplicate letter was pressed. Please try again.")
                 console.log("UserGuess within the for loop if statement: " + userGuess);
                 console.log("-------------------------");
             // If userGuess is inside the guessesSoFar array, decrement guesses and push userGuess into guessesSoFar.
@@ -102,7 +102,7 @@ for (var w = 0; w < computerGuess.length; w++){
         }
     // Alerts user if a invalid letter is pressed.
     }else{
-        // alert("Invalid letter. Please type a letter from a-z.");
+        alert("Invalid letter. Please type a letter from a-z.");
         console.log("Alerts false letter: " + userGuess);
         console.log("-------------------------");
     }
