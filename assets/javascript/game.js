@@ -1,6 +1,5 @@
 // Using arrays, create a list of words for the computer to choose from.
 var computerChoices = ["milkyway", "andromeda", "comet", "cosmos", "draco", "mayall", "triangulum", "bode", "messier"];
-
 var wins = 0;
 var losses = 0;
 var guesses = 15; //Change to 20 in the future
@@ -70,6 +69,7 @@ for (var w = 0; w < computerGuess.length; w++){
         // Wins if userGuess = to computerGuess.
         if (dash == computerGuess){
             wins++
+            alert("Goodjob you guessed the word: " + computerGuess);
             computerGuessReset();
             console.log("ComputerGuess win reset: " + computerGuessReset);
             console.log("-------------------------");
@@ -79,6 +79,7 @@ for (var w = 0; w < computerGuess.length; w++){
         // Losses when the guess counter hits 0.        
         }else if (guesses == 1){
             losses++
+            alert("Nice try, the word was: " + computerGuess);
             computerGuessReset();
             console.log("ComputerGuess loss reset: " + computerGuessReset);
             console.log("-------------------------");
